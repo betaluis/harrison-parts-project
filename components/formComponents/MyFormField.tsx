@@ -21,7 +21,7 @@ type Props = {
         description: string;
         price: number;
         inStock: boolean;
-    }, any, undefined>
+    }, undefined>
 }
 
 export default function MyInputField({ form, name, placeholder, type, label }: Props) {
