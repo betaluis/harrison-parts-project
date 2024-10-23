@@ -1,7 +1,7 @@
 import { sql } from '@vercel/postgres';
 import { NextResponse } from 'next/server';
 
-export async function GET(request: Request) {
+export async function GET() {
     const parts = await sql`SELECT * FROM harrison_parts;`;
     return NextResponse.json({ parts }, { status: 200 });
 }
@@ -19,6 +19,6 @@ export async function POST(req: Request) {
 
         return NextResponse.json({ success: true, result }, { status: 201 });
     } catch (error) {
-        return NextResponse.json({ error: "Failed to insert data" }, { status: 500 });
+        return NextResponse.json({ error: error }, { status: 500 });
     }
 }
