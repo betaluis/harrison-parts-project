@@ -8,7 +8,6 @@ import { Form, } from "@/components/ui/form"
 import MyFormField from "@/components/formComponents/MyFormField"
 import { HarrisonPartType } from '@/app/page'
 import { addPartToDatabase } from '@/lib/fetch/fetchParts'
-import useGetPartsList from '@/hooks/useGetPartsList'
 import { usePartsStore } from '@/stores/parts'
 
 
