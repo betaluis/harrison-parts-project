@@ -24,11 +24,14 @@ export const columns: ColumnDef<HarrisonPartType>[] = [
         accessorKey: "price",
         header: "Price",
         cell: ({ row }) => {
-            const amount = parseFloat(row.getValue("price"))
-            const formatted = new Intl.NumberFormat("en-US", {
-                style: "currency",
-                currency: "USD",
-            }).format(amount)
+            //
+            // TODO: Format currency for "price" column
+            //
+            // const amount = parseFloat(row.getValue("price"))
+            // const formatted = new Intl.NumberFormat("en-US", {
+            //     style: "currency",
+            //     currency: "USD",
+            // }).format(amount)
 
             return <div className="text-right font-medium">{row.getValue("price")}</div>
         },
