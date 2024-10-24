@@ -98,7 +98,15 @@ export default function MyInputField({ form, name, placeholder, type, label }: P
             render={({ field }) => (
                 <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md">
                     <FormControl>
-                        <Checkbox checked={field.value} onCheckedChange={field.onChange} />
+                        <Checkbox 
+                            checked={field.value} 
+                            onCheckedChange={field.onChange} 
+                            value={
+                                typeof field.value === 'string' || typeof field.value === 'number'
+                                    ? field.value
+                                    : "" // Default to empty string if value is not valid
+                            }
+                        />
                     </FormControl>
                     <div className="space-y-1 leading-none">
                         <FormLabel>{label}</FormLabel>
