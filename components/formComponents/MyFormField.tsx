@@ -34,7 +34,11 @@ export default function MyInputField({ form, name, placeholder, type, label }: P
                 <FormItem>
                     <FormLabel>{label}</FormLabel>
                     <FormControl>
-                        <Input placeholder={placeholder} {...field} />
+                        <Input
+                            placeholder={placeholder}
+                            {...field}
+                            value={typeof field.value === "boolean" ? field.value.toString() : field.value}
+                        />
                     </FormControl>
                     <FormMessage />
                 </FormItem>
