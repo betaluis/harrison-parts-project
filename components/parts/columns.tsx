@@ -26,17 +26,12 @@ export const columns: ColumnDef<HarrisonPartType>[] = [
         accessorKey: "price",
         header: "Price",
         cell: ({ row }) => {
-            //
-            // TODO: Format currency for "price" column
-
             const priceValue: any = row.getValue("price");
 
             const priceString = typeof priceValue === 'string' ? priceValue : priceValue.toString();
 
-            // Remove non-numeric characters except for the decimal point
             const amount = parseFloat(priceString.replace(/[^0-9.-]+/g, ''));
 
-            // If the amount is valid, format it as currency
             if (!isNaN(amount)) {
                 const formatted = new Intl.NumberFormat("en-US", {
                     style: "currency",
@@ -52,7 +47,7 @@ export const columns: ColumnDef<HarrisonPartType>[] = [
     },
     {
         accessorKey: "availibility",
-        header: () => <div className="text-center">In Stock</div>,
+        header: () => <div className="text-center">Availability</div>,
         cell: ({ row }) => {
             const isInStock = row.getValue("availibility")
 
