@@ -43,10 +43,10 @@ export const columns: ColumnDef<HarrisonPartType>[] = [
                     currency: "USD",
                 }).format(amount);
 
-                return <div className="text-right font-medium">{formatted}</div>;
+                return <div className="text-left">{formatted}</div>;
             }
 
-            return <div className="text-right font-medium">Invalid Price</div>;
+            return <div className="text-left">Invalid Price</div>;
 
         },
     },
