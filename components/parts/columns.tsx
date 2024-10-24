@@ -52,7 +52,7 @@ export const columns: ColumnDef<HarrisonPartType>[] = [
             const isInStock = row.getValue("availibility")
 
             return isInStock ?
-                <div className="flex justify-center items-center">In Stock</div>
+                <div className="flex justify-center items-center py-1 px-4 rounded-full bg-blue-50 text-blue-500">In Stock</div>
                 : <div className="flex justify-center items-center py-1 px-4 rounded-full bg-red-50 text-red-500">Out of Stock</div>
         }
     }
