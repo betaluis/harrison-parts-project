@@ -23,7 +23,7 @@ export const addPartToDatabase = async (data: HarrisonPartType) => {
 
 export const getParts = async () => {
 
-    const res = await fetch(`http://localhost:3000/api/parts`);
+    const res = await fetch(`/api/parts`);
 
     if (!res.ok) throw new Error("Could not fetch parts")
 
