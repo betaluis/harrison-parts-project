@@ -51,33 +51,14 @@ export const columns: ColumnDef<HarrisonPartType>[] = [
         },
     },
     {
-        accessorKey: "stock",
+        accessorKey: "availibility",
         header: () => <div className="text-center">In Stock</div>,
         cell: ({ row }) => {
-            const isInStock = row.getValue("stock")
+            const isInStock = row.getValue("availibility")
 
             return isInStock ?
-                <div className="flex justify-center items-center"><Checkmark checked={true} /></div>
-                : <div className="flex justify-center items-center"><Checkmark checked={false} /></div>
+                <div className="flex justify-center items-center">In Stock</div>
+                : <div className="flex justify-center items-center py-1 px-4 rounded-full bg-red-50 text-red-500">Out of Stock</div>
         }
     }
 ]
-
-const Checkmark = ({ checked }: { checked: boolean }) => {
-
-    if (checked) {
-        return (
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width={dataTableCheckBoxSize} height={dataTableCheckBoxSize}>
-                <rect x="4" y="4" width="56" height="56" rx="10" ry="10" fill="black" />
-                <path d="M20 32L28 40L44 24" fill="none" stroke="white" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-        )
-    } else {
-        return (
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width={dataTableCheckBoxSize} height={dataTableCheckBoxSize}>
-                <rect x="4" y="4" width="56" height="56" rx="10" ry="10" fill="white" stroke="black" stroke-width="4" />
-            </svg>
-        )
-    }
-}
-
