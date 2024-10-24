@@ -78,7 +78,7 @@ export default function MyInputField({ form, name, placeholder, type, label }: P
                         <Textarea
                             placeholder={placeholder}
                             {...field}
-                            value={typeof field.value === "boolean" ? field.value.toString() : field.value}
+                            value={field.value !== undefined ? field.value : ""}
                         />
                     </FormControl>
                     <FormMessage />
