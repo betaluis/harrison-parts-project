@@ -99,13 +99,8 @@ export default function MyInputField({ form, name, placeholder, type, label }: P
                 <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md">
                     <FormControl>
                         <Checkbox 
-                            checked={field.value} 
+                            checked={Boolean(field.value)}
                             onCheckedChange={field.onChange} 
-                            value={
-                                typeof field.value === 'string' || typeof field.value === 'number'
-                                    ? field.value
-                                    : "" // Default to empty string if value is not valid
-                            }
                         />
                     </FormControl>
                     <div className="space-y-1 leading-none">
