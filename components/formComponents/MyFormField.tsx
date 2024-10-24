@@ -78,7 +78,11 @@ export default function MyInputField({ form, name, placeholder, type, label }: P
                         <Textarea
                             placeholder={placeholder}
                             {...field}
-                            value={field.value !== undefined ? field.value : ""}
+                            value={
+                                typeof field.value === 'string' || typeof field.value === 'number'
+                                    ? field.value
+                                    : "" // Default to empty string if value is not valid
+                            }
                         />
                     </FormControl>
                     <FormMessage />
