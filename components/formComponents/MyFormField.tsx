@@ -20,7 +20,7 @@ type Props = {
         partNumber: string;
         description: string;
         price: number;
-        inStock: boolean;
+        availability: boolean;
     }, undefined>
 }
 

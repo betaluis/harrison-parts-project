@@ -10,11 +10,11 @@ export async function POST(req: Request) {
     try {
         const body = await req.json()
 
-        const { item, part_number, description, price, stock } = body;
+        const { item, part_number, description, price, availability } = body;
 
         const result = await sql`
-            INSERT INTO harrison_parts (item, part_number, description, price, stock)
-            VALUES (${item}, ${part_number}, ${description}, ${price}, ${stock})
+            INSERT INTO harrison_parts (item, part_number, description, price, availability)
+            VALUES (${item}, ${part_number}, ${description}, ${price}, ${availability})
         `;
 
         return NextResponse.json({ success: true, result }, { status: 201 });

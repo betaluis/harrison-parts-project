@@ -24,7 +24,7 @@ const formSchema = z.object({
     price: z.number().positive({
         message: "Number must be a positive number."
     }),
-    inStock: z.boolean().default(false)
+    availability: z.boolean().default(false)
 })
 
 export default function MyForm() {
@@ -36,7 +36,7 @@ export default function MyForm() {
             partNumber: "",
             description: "",
             price: 0,
-            inStock: false
+            availability: false
         }
     })
 
@@ -49,10 +49,12 @@ export default function MyForm() {
             part_number: values.partNumber,
             description: values.description,
             price: values.price,
-            stock: values.inStock
+            availability: values.availability
         }
 
         addPartToList(newItem) // Zustand list
+        
+        // TODO : New parts aren't added to the database from production
         addPartToDatabase(newItem) // Database
 
         form.reset()
