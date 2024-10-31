@@ -9,10 +9,11 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Checkbox } from "@/components/ui/checkbox"
 import { UseFormReturn } from "react-hook-form"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select"
 
 type Props = {
-    name: "item" | "partNumber" | "description" | "price" | "inStock",
-    type: "input" | "checkbox" | "textarea" | "money",
+    name: "item" | "partNumber" | "description" | "price" | "availability",
+    type: "input" | "checkbox" | "textarea" | "money" | "select",
     label: string,
     placeholder: string,
     form: UseFormReturn<{
@@ -20,7 +21,7 @@ type Props = {
         partNumber: string;
         description: string;
         price: number;
-        availability: boolean;
+        availability: string;
     }, undefined>
 }
 
@@ -110,6 +111,30 @@ export default function MyInputField({ form, name, placeholder, type, label }: P
             )}
         />
 
+    )
+
+    if (type === "select") return (
+        <FormField
+          control={form.control}
+          name={name}
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>{label}</FormLabel>
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <FormControl>
+                  <SelectTrigger>
+                    <SelectValue placeholder={placeholder}/>
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
+                  <SelectItem value="in stock">In Stock</SelectItem>
+                  <SelectItem value="out of stock">Out of Stock</SelectItem>
+                </SelectContent>
+              </Select>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
     )
 }
 

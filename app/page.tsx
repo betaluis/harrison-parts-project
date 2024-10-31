@@ -6,7 +6,7 @@ export type HarrisonPartType = {
     part_number: string,
     description: string,
     price: number,
-    availability: boolean
+    availability: string
 }
 
 export default async function Home() {

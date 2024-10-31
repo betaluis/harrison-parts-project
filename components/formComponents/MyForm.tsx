@@ -24,7 +24,7 @@ const formSchema = z.object({
     price: z.number().positive({
         message: "Number must be a positive number."
     }),
-    availability: z.boolean().default(false)
+    availability: z.string().default("Choose")
 })
 
 export default function MyForm() {
@@ -36,7 +36,7 @@ export default function MyForm() {
             partNumber: "",
             description: "",
             price: 0,
-            availability: false
+            availability: "out of stock"
         }
     })
 
@@ -54,7 +54,6 @@ export default function MyForm() {
 
         addPartToList(newItem) // Zustand list
         
-        // TODO : New parts aren't added to the database from production
         addPartToDatabase(newItem) // Database
 
         form.reset()
@@ -94,9 +93,9 @@ export default function MyForm() {
                 />
                 <MyFormField
                     form={form}
-                    name="inStock"
-                    placeholder="In Stock"
-                    type="checkbox"
+                    name="availability"
+                    placeholder="Select one of the following options"
+                    type="select"
                     label="In Stock?"
                 />
                 <Button type="submit">Submit</Button>

@@ -46,11 +46,13 @@ export const columns: ColumnDef<HarrisonPartType>[] = [
         },
     },
     {
+
+        // TODO: : It shows out of stock when odded from the form.
+
         accessorKey: "availability",
         header: () => <div className="text-center">Availability</div>,
         cell: ({ row }) => {
             const isInStock = row.getValue("availability")
-            console.log(isInStock)
 
             return isInStock === "in stock" ?
                 <div className="flex justify-center items-center py-1 px-4 rounded-full bg-blue-50 text-blue-500">In Stock</div>
