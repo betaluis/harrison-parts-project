@@ -4,7 +4,7 @@ import { useEffect } from "react"
 
 const useGetPartsList = () => {
 
-    const setPartsList =  usePartsStore(state => state.setPartsList)
+    const setPartsList = usePartsStore(state => state.setPartsList)
     const partsList = usePartsStore(state => state.partsList)
 
     useEffect(() => {
@@ -18,8 +18,10 @@ const useGetPartsList = () => {
         fetchParts()
     }, [setPartsList])
 
-    return partsList
+    return partsList;
 
 }
 
 export default useGetPartsList;
+
+
