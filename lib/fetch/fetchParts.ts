@@ -1,8 +1,10 @@
 import { HarrisonPartType } from "@/app/page";
 
+const baseUrl = process.env.PUBLIC_API_ROUTE
+
 export const addPartToDatabase = async (data: HarrisonPartType) => {
     try {
-        const res = await fetch(`/api/parts`, {
+        const res = await fetch(`${baseUrl}/api/parts`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
